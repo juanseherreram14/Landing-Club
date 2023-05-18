@@ -1,53 +1,48 @@
 import { Navbar, Button, Link, Text } from "@nextui-org/react";
 
-
 export default function App() {
   const collapseItems = [
-    "Features",
-    "Customers",
-    "Pricing",
-    "Company",
-    "Legal",
-    "Team",
-    "Help & Feedback",
-    "Login",
-    "Sign Up",
+    { title: "Inicio", url: "/" },
+    { title: "UDLA Blockchain Day", url: "https://www.eth-tricolor.org" },
+    { title: "Únete al club", url: "/join-club" }
   ];
 
-  return (
+  const links = [
+    
+  ]
 
-      <Navbar isBordered variant="sticky">
-        <Navbar.Brand>
-          <Navbar.Toggle aria-label="toggle navigation" />
-       
-          <Text b color="inherit" hideIn="xs">
-            ACME
-          </Text>
-        </Navbar.Brand>
-        <Navbar.Content enableCursorHighlight hideIn="xs" variant="underline">
-          <Navbar.Link href="#">Features</Navbar.Link>
-          <Navbar.Link href="#">Cómo Funciona</Navbar.Link>
-          <Navbar.Link href="#">Nosotros</Navbar.Link>
-          <Button color="gradient" auto>
-          Registrarse para el Beta
+  return (
+    <Navbar isBordered variant="sticky">
+      <Navbar.Brand>
+        <Navbar.Toggle aria-label="toggle navigation" />
+        <Text b color="inherit" hideIn="xs">
+          Club De Software 
+        </Text>
+      </Navbar.Brand>
+      <Navbar.Content enableCursorHighlight hideIn="xs" variant="underline">
+        <Navbar.Link href="#">Eventos</Navbar.Link>
+        <Navbar.Link href="#">Miembros</Navbar.Link>
+        <Navbar.Link href="#">Nosotros</Navbar.Link>
+        <Navbar.Link href="#">Proyectos</Navbar.Link>
+        <Button color="gradient" auto>
+          Registrate para ser miembro
         </Button>
-        </Navbar.Content>
-        <Navbar.Collapse>
+      </Navbar.Content>
+      <Navbar.Collapse>
         {collapseItems.map((item, index) => (
-          <Navbar.CollapseItem key={item}>
+          <Navbar.CollapseItem key={item.title}>
             <Link
               color="inherit"
               css={{
                 minWidth: "100%",
               }}
-              href="#"
+              href= {item.url}
             >
-              {item}
+              {item.title}
             </Link>
           </Navbar.CollapseItem>
         ))}
       </Navbar.Collapse>
-      </Navbar>
-   
-  )
+    </Navbar>
+  );
 }
